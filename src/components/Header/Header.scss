@@ -80,7 +80,7 @@
     }
     .nav-link {
       display: flex;
-      margin-bottom: 10px;
+
       font-size: 18px;
       color: $lightgrey;
       text-decoration: none;
@@ -97,6 +97,7 @@
 
       @include xl {
         color: #fff;
+        margin-bottom: 10px;
       }
     }
     .nav-link.active {
