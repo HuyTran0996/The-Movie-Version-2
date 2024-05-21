@@ -1,21 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTrendingData } from "../thunks/fetchMovies";
+import { fetchTrendingAll } from "../thunks/fetchMovies";
 
 const initialState = {
-  bannerData: [],
-  imageURL: "",
+  dataTrendingAll: [],
+  dataPopularMovie: null,
+  dataUpComing: null,
+  dataTopRated: null,
+  dataSearch: null,
+  dataFilter: null,
+  dataDetail: null,
 };
 
 const movieSlice = createSlice({
   name: "movies",
   initialState: initialState,
-  reducers: {
-    setBannerData: (state, action) => {
-      state.bannerData = action.payload;
-    },
-    setImageURL: (state, action) => {
-      state.imageURL = action.payload;
-    },
+  extraReducers(builder) {
+    builder.addCase(fetchTrendingAll.fulfilled, (state, action) => {
+      state.dataTrendingAll = action.payload;
+    });
   },
 });
 

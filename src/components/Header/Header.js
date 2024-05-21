@@ -16,6 +16,7 @@ import logo from "../../assets/logo.png";
 import { showToast } from "../../components/ToastMessage";
 
 const Header = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [isMobile, setIsMobile] = useState(false);
   const [input, SetInput] = useState("");
@@ -35,10 +36,12 @@ const Header = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!input) {
+    if (!input.trim()) {
       showToast("Can not search with an empty box...", "warn");
       return;
     }
+    navigate(`/search?q=${input}`);
+
     SetInput("");
   };
 
