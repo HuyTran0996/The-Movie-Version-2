@@ -9,3 +9,21 @@ export const fetchTrendingAll = createAsyncThunk(
     return res.data;
   }
 );
+export const fetchNowPlayingMovie = createAsyncThunk(
+  "movies/fetchNowPlayingMovie",
+  async () => {
+    const res = await apiService.get(
+      "/movie/now_playing?language=en-US&page=1"
+    );
+    console.log("fetchNowPlayingMovie", res);
+    return res.data;
+  }
+);
+export const fetchTopRatedMovie = createAsyncThunk(
+  "movies/fetchTopRatedMovie",
+  async () => {
+    const res = await apiService.get("/movie/top_rated?language=en-US&page=1");
+    console.log("fetchTopRatedMovie", res);
+    return res.data;
+  }
+);

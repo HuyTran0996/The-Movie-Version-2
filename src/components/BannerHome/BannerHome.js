@@ -27,7 +27,6 @@ const responsive = {
 const IMG_URL = "https://image.tmdb.org/t/p/original";
 
 const BannerHome = () => {
-  const navigate = useNavigate();
   const { dataTrendingAll } = useSelector((state) => {
     return state.movies;
   });
