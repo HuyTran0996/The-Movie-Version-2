@@ -1,6 +1,6 @@
 .banner {
-  height: 100vh;
-  cursor: default;
+  height: 90vh;
+  overflow: hidden;
   img {
     width: 100vw;
   }
@@ -12,10 +12,10 @@
     background: linear-gradient(to top, #1a202c, transparent);
   }
   .content {
-    position: relative;
-    top: -400px;
+    position: absolute;
+    top: 60vh;
     margin-left: 50px;
-    width: 500px;
+    max-width: 700px;
     color: #fff;
     display: flex;
     flex-direction: column;
