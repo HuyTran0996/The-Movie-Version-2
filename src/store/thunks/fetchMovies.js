@@ -29,3 +29,23 @@ export const fetchTopRatedMovie = createAsyncThunk(
     return res.data;
   }
 );
+export const fetchMovieAndTVDetail = createAsyncThunk(
+  "movies/fetchMovieAndTVDetail",
+  async (type) => {
+    //type of movie is: movie/movieID
+    //type of movie is: tv/tvID
+    const res = await apiService.get(`${type}?language=en-US`);
+    console.log("fetchMovieAndTVDetail", res);
+    return res.data;
+  }
+);
+export const fetchMovieAndTVCredits = createAsyncThunk(
+  "movies/fetchMovieAndTVCredits",
+  async (type) => {
+    //type of movie is: movie/movieID
+    //type of movie is: tv/tvID
+    const res = await apiService.get(`${type}/credits?language=en-US`);
+    console.log("fetchMovieAndTVCredits", res);
+    return res.data;
+  }
+);

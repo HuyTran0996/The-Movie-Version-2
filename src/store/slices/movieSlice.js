@@ -3,12 +3,16 @@ import {
   fetchTrendingAll,
   fetchNowPlayingMovie,
   fetchTopRatedMovie,
+  fetchMovieAndTVDetail,
+  fetchMovieAndTVCredits,
 } from "../thunks/fetchMovies";
 
 const initialState = {
   dataTrendingAll: [],
   dataNowPlayingMovie: [],
   dataTopRatedMovie: [],
+  dataMovieAndTVDetail: [],
+  dataMovieAndTVCredits: [],
 };
 
 const movieSlice = createSlice({
@@ -23,6 +27,12 @@ const movieSlice = createSlice({
     });
     builder.addCase(fetchTopRatedMovie.fulfilled, (state, action) => {
       state.dataTopRatedMovie = action.payload;
+    });
+    builder.addCase(fetchMovieAndTVDetail.fulfilled, (state, action) => {
+      state.dataMovieAndTVDetail = action.payload;
+    });
+    builder.addCase(fetchMovieAndTVCredits.fulfilled, (state, action) => {
+      state.dataMovieAndTVCredits = action.payload;
     });
   },
 });
