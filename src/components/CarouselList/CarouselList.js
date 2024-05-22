@@ -27,7 +27,7 @@ const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 const CarouselList = ({ data = [], heading, trending, media_type }) => {
   const navigate = useNavigate();
-  console.log("data at CarouselList", data);
+
   let data1 = data.results || [];
   const moveTo = (item) => {
     navigate(`/${media_type || item?.media_type}/${item.id}`);

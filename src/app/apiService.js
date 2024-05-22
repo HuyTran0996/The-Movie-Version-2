@@ -21,7 +21,7 @@ apiService.interceptors.request.use(
 
 apiService.interceptors.response.use(
   (res) => {
-    console.log("Response", res);
+    // console.log("Response", res);
     return res;
   },
   (err) => {

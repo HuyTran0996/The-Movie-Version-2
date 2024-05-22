@@ -30,7 +30,7 @@ const BannerHome = () => {
   const { dataTrendingAll } = useSelector((state) => {
     return state.movies;
   });
-  console.log("data at Banner Home", dataTrendingAll);
+
   const data = dataTrendingAll.results || [];
 
   return (

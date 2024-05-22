@@ -11,9 +11,9 @@ export const fetchTrendingAll = createAsyncThunk(
 );
 export const fetchNowPlayingMovie = createAsyncThunk(
   "movies/fetchNowPlayingMovie",
-  async () => {
+  async (page) => {
     const res = await apiService.get(
-      "/movie/now_playing?language=en-US&page=1"
+      `/movie/now_playing?language=en-US&page=${page || 1}`
     );
     console.log("fetchNowPlayingMovie", res);
     return res.data;
@@ -21,8 +21,10 @@ export const fetchNowPlayingMovie = createAsyncThunk(
 );
 export const fetchTopRatedMovie = createAsyncThunk(
   "movies/fetchTopRatedMovie",
-  async () => {
-    const res = await apiService.get("/movie/top_rated?language=en-US&page=1");
+  async (page) => {
+    const res = await apiService.get(
+      `/movie/top_rated?language=en-US&page=${page || 1}`
+    );
     console.log("fetchTopRatedMovie", res);
     return res.data;
   }
