@@ -39,6 +39,7 @@ export const fetchMovieAndTVDetail = createAsyncThunk(
     return res.data;
   }
 );
+
 export const fetchMovieAndTVCredits = createAsyncThunk(
   "movies/fetchMovieAndTVCredits",
   async (type) => {
@@ -46,6 +47,38 @@ export const fetchMovieAndTVCredits = createAsyncThunk(
     //type of movie is: tv/tvID
     const res = await apiService.get(`${type}/credits?language=en-US`);
     console.log("fetchMovieAndTVCredits", res);
+    return res.data;
+  }
+);
+
+export const fetchMovieAndTVSimilar = createAsyncThunk(
+  "movies/fetchMovieAndTVSimilar",
+  async (type) => {
+    //type of movie is: movie/movieID
+    //type of movie is: tv/tvID
+    const res = await apiService.get(`${type}/similar?language=en-US`);
+    console.log("fetchMovieAndTVSimilar", res);
+    return res.data;
+  }
+);
+export const fetchMovieAndTVRecommendations = createAsyncThunk(
+  "movies/fetchMovieAndTVRecommendations",
+  async (type) => {
+    //type of movie is: movie/movieID
+    //type of movie is: tv/tvID
+    const res = await apiService.get(`${type}/recommendations?language=en-US`);
+    console.log("fetchMovieAndTVRecommendations", res);
+    return res.data;
+  }
+);
+
+export const fetchMovieAndTVVideos = createAsyncThunk(
+  "movies/fetchMovieAndTVVideos",
+  async (type) => {
+    //type of movie is: movie/movieID
+    //type of movie is: tv/tvID
+    const res = await apiService.get(`${type}/videos?language=en-US`);
+    console.log("fetchMovieAndTVVideos", res);
     return res.data;
   }
 );

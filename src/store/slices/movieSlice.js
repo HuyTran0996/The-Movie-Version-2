@@ -5,6 +5,9 @@ import {
   fetchTopRatedMovie,
   fetchMovieAndTVDetail,
   fetchMovieAndTVCredits,
+  fetchMovieAndTVSimilar,
+  fetchMovieAndTVRecommendations,
+  fetchMovieAndTVVideos,
 } from "../thunks/fetchMovies";
 
 const initialState = {
@@ -13,6 +16,9 @@ const initialState = {
   dataTopRatedMovie: [],
   dataMovieAndTVDetail: [],
   dataMovieAndTVCredits: [],
+  dataMovieAndTVSimilar: [],
+  dataMovieAndTVRecommendations: [],
+  dataMovieAndTVVideos: [],
 };
 
 const movieSlice = createSlice({
@@ -33,6 +39,18 @@ const movieSlice = createSlice({
     });
     builder.addCase(fetchMovieAndTVCredits.fulfilled, (state, action) => {
       state.dataMovieAndTVCredits = action.payload;
+    });
+    builder.addCase(fetchMovieAndTVSimilar.fulfilled, (state, action) => {
+      state.dataMovieAndTVSimilar = action.payload;
+    });
+    builder.addCase(
+      fetchMovieAndTVRecommendations.fulfilled,
+      (state, action) => {
+        state.dataMovieAndTVRecommendations = action.payload;
+      }
+    );
+    builder.addCase(fetchMovieAndTVVideos.fulfilled, (state, action) => {
+      state.dataMovieAndTVVideos = action.payload;
     });
   },
 });
