@@ -82,3 +82,12 @@ export const fetchMovieAndTVVideos = createAsyncThunk(
     return res.data;
   }
 );
+
+export const fetchMovieAndTVDiscover = createAsyncThunk(
+  "movies/fetchMovieAndTVDiscover",
+  async ({ type, page }) => {
+    const res = await apiService.get(`/discover/${type}?page=${page || 1}`);
+    console.log("fetchMovieAndTVDiscover", res);
+    return res.data;
+  }
+);

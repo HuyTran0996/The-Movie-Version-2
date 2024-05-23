@@ -110,7 +110,7 @@ const Header = () => {
           </Link>
 
           <Link
-            to="/tv"
+            to="/tv?page=1"
             className={`${page === "tv" ? "active" : ""} nav-link`}
             style={{ "--i": 2 }}
           >
@@ -119,7 +119,7 @@ const Header = () => {
           </Link>
 
           <Link
-            to="/movie"
+            to="/movie?page=1"
             className={`${page === "movie" ? "active" : ""} nav-link`}
             style={{ "--i": 3 }}
           >
