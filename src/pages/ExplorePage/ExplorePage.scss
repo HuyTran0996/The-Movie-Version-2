@@ -1,3 +1,4 @@
+@import "../../stylesStore/breakpoints.scss";
 .explorePage {
   position: relative;
   width: 100%;
@@ -9,6 +10,12 @@
     justify-content: center;
     align-items: center;
     padding: 10vh 30px 30px 30px;
+    @include lg {
+      padding: 20vh 60px 30px 60px;
+    }
+    @include mm {
+      padding: 10vh 20px 30px 20px;
+    }
     .capitalize {
       font-size: 30px;
       text-transform: capitalize;
@@ -19,11 +26,23 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
+
       width: 100%;
+
       .exploreCard {
         width: 20%;
         margin: 5px 0px;
         margin-right: -20px;
+        @include lg {
+          margin: 15px 0px;
+          margin-right: -20px;
+          width: 30%;
+        }
+        @include mm {
+          margin: 15px 0px;
+          margin-right: -20px;
+          width: 50%;
+        }
       }
     }
     .pagination {

@@ -19,7 +19,7 @@ const IMG_URL = "https://image.tmdb.org/t/p/w400";
 
 const DetailsPage = () => {
   const [playVideo, setPlayVideo] = useState(false);
-  const [playVideoId, setPlayVideoId] = useState("");
+
   const params = useParams();
 
   /////////Call useThunk//////////////
@@ -58,7 +58,6 @@ const DetailsPage = () => {
 
   const handlePlayVideo = (e) => {
     e.preventDefault();
-    // setPlayVideoId(data);
     setPlayVideo(true);
   };
 
@@ -124,6 +123,7 @@ const DetailsPage = () => {
               </p>
             </div>
             <div className="divider"></div>
+
             <div className="overview">
               <h3>Overview</h3>
               <p>{dataMovieAndTVDetail?.overview}</p>
@@ -181,7 +181,7 @@ const DetailsPage = () => {
             </div>
           </div>
 
-          <div>
+          <div className="similar">
             <CarouselList
               data={dataMovieAndTVSimilar}
               heading={"Similar " + params.explore}
@@ -195,12 +195,7 @@ const DetailsPage = () => {
           </div>
 
           {playVideo && (
-            <VideoPlay
-              params={params}
-              // data={playVideoId}
-              close={() => setPlayVideo(false)}
-              // media_type={params?.explore}
-            />
+            <VideoPlay params={params} close={() => setPlayVideo(false)} />
           )}
         </div>
       )}

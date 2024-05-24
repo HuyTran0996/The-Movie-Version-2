@@ -35,7 +35,7 @@ const BannerHome = () => {
 
   return (
     <Carousel
-      className="carousel"
+      className="carouselBanner"
       responsive={responsive}
       transitionDuration={300}
       infinite={true}

@@ -56,28 +56,30 @@ const Home = () => {
       ) : (
         <>
           <BannerHome />
-          <CarouselList data={dataTrendingAll} heading={"Trending"} />
-          <CarouselList
-            data={dataNowPlayingMovie}
-            heading={"Now Playing"}
-            media_type={"movie"}
-          />
-          <CarouselList
-            data={dataTopRatedMovie}
-            heading={"Top Rated Movies"}
-            media_type={"movie"}
-          />
+          <div className="homeCarousel">
+            <CarouselList data={dataTrendingAll} heading={"Trending"} />
+            <CarouselList
+              data={dataNowPlayingMovie}
+              heading={"Now Playing"}
+              media_type={"movie"}
+            />
+            <CarouselList
+              data={dataTopRatedMovie}
+              heading={"Top Rated Movies"}
+              media_type={"movie"}
+            />
 
-          <CarouselList
-            data={dataPopularTV}
-            heading={"Popular TV Show"}
-            media_type={"tv"}
-          />
-          <CarouselList
-            data={dataOnTheAir}
-            heading={"On The Air"}
-            media_type={"tv"}
-          />
+            <CarouselList
+              data={dataPopularTV}
+              heading={"Popular TV Show"}
+              media_type={"tv"}
+            />
+            <CarouselList
+              data={dataOnTheAir}
+              heading={"On The Air"}
+              media_type={"tv"}
+            />
+          </div>
         </>
       )}
     </div>

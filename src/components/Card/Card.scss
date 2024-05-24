@@ -1,3 +1,4 @@
+@import "../../stylesStore/breakpoints.scss";
 .carouselList {
   position: relative;
   margin-right: 20px;
@@ -5,11 +6,24 @@
   border-radius: 10px;
   overflow: hidden;
   transition: 0.3s;
+  @include mm {
+    height: 300px;
+  }
+  @include lg {
+    height: 350px;
+  }
   img {
     width: 100%;
     transition: 0.3s;
+    object-fit: cover;
     &:hover {
       scale: 1.05;
+    }
+    @include mm {
+      height: 300px;
+    }
+    @include lg {
+      height: 350px;
     }
   }
   .carouselListContent {
@@ -19,6 +33,7 @@
     height: 120px;
     padding: 0 10px;
     background-color: rgba(0, 0, 0, 0.8);
+
     .carouselListTitle {
       font-size: 22px;
       display: -webkit-box;

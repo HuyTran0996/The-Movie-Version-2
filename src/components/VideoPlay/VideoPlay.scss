@@ -17,6 +17,11 @@
     height: 65vh;
     display: flex;
     flex-direction: column;
+    @include lg {
+      top: 10vh;
+      width: 80vw;
+      height: 70vh;
+    }
     @include md {
       width: 80vw;
       height: 35vh;
@@ -38,6 +43,9 @@
       transition: 0.3s;
       &:hover {
         color: red;
+      }
+      @include lg {
+        display: none;
       }
     }
   }
