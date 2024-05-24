@@ -1,0 +1,35 @@
+.searchPage {
+  position: relative;
+  width: 100%;
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 30px 30px 30px;
+    .capitalize {
+      font-size: 30px;
+      text-transform: capitalize;
+      margin-bottom: 5px;
+    }
+    .grid {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 100%;
+      .exploreCard {
+        width: 20%;
+        margin: 5px 0px;
+        margin-right: -20px;
+      }
+    }
+    .pagination {
+      position: relative;
+      margin-top: 15px;
+      width: 30vw;
+    }
+  }
+}

@@ -40,7 +40,7 @@ const Header = () => {
       showToast("Can not search with an empty box...", "warn");
       return;
     }
-    navigate(`/search?q=${input}`);
+    navigate(`/search?q=${input}&page=1`);
 
     SetInput("");
   };

@@ -97,7 +97,7 @@ export const fetchSearchMulti = createAsyncThunk(
   "movies/fetchSearchMulti",
   async ({ query, page }) => {
     const res = await apiService.get(
-      `/discover/search/multi?query=${query}&page=${page || 1}`
+      `/search/multi?query=${query}&page=${page || 1}`
     );
     console.log("fetchSearchMulti", res);
     return res.data;
