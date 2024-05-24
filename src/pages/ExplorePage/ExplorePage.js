@@ -6,6 +6,7 @@ import "react-responsive-pagination/themes/classic.css";
 import "./ExplorePage.scss";
 
 import Card from "../../components/Card/Card";
+import Loading from "../../components/Loading/Loading";
 import { useThunk } from "../../hook/use-thunk";
 import { fetchMovieAndTVDiscover } from "../../store/thunks/fetchMovies";
 
@@ -32,6 +33,13 @@ const ExplorePage = () => {
     navigate(`/${params.explore}?page=${p}`);
     setPage(p);
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (loadingError) {
+    return <p>Error Loading...</p>;
+  }
 
   return (
     <div className="explorePage">

@@ -13,6 +13,7 @@ import {
   fetchMovieAndTVSimilar,
   fetchMovieAndTVRecommendations,
 } from "../../store/thunks/fetchMovies";
+import Loading from "../../components/Loading/Loading";
 
 const IMG_URL_BANNER = "https://image.tmdb.org/t/p/original";
 const IMG_URL = "https://image.tmdb.org/t/p/w400";
@@ -66,141 +67,143 @@ const DetailsPage = () => {
     ?.filter((el) => el?.job === "Writer")
     ?.map((el) => el?.name)
     ?.join(", ");
-  return (
-    <div>
-      {isLoading ||
-      isLoadingCredits ||
-      isLoadingSimilar ||
-      isLoadingRecommendations ? (
-        <p>Loading...</p>
-      ) : loadingError ||
-        loadingErrorCredits ||
-        loadingErrorSimilar ||
-        loadingErrorRecommendations ? (
-        <p>Error loading data</p>
-      ) : (
-        <div className="detailPage">
-          <div className="banner">
-            <div className="imgBanner">
-              <img
-                src={IMG_URL_BANNER + dataMovieAndTVDetail?.backdrop_path}
-                alt="BANNER"
-              />
-              <div className="blurring"></div>
-            </div>
-          </div>
 
-          <div className="avatar">
+  if (
+    isLoading ||
+    isLoadingCredits ||
+    isLoadingSimilar ||
+    isLoadingRecommendations
+  ) {
+    return <Loading />;
+  }
+
+  if (
+    loadingError ||
+    loadingErrorCredits ||
+    loadingErrorSimilar ||
+    loadingErrorRecommendations
+  ) {
+    return <p>Error loading data</p>;
+  } else {
+    return (
+      <div className="detailPage">
+        <div className="banner">
+          <div className="imgBanner">
             <img
-              src={IMG_URL + dataMovieAndTVDetail?.poster_path}
-              alt="Poster"
+              src={IMG_URL_BANNER + dataMovieAndTVDetail?.backdrop_path}
+              alt="BANNER"
             />
-            <button onClick={handlePlayVideo}>Play Trailer</button>
+            <div className="blurring"></div>
           </div>
-
-          <div className="content">
-            <h1 className="title">
-              {dataMovieAndTVDetail?.title || dataMovieAndTVDetail?.name}
-            </h1>
-            <p>{dataMovieAndTVDetail?.tagline}</p>
-
-            <div className="divider"></div>
-
-            <div className="rating">
-              <p>
-                <span>Rating: </span>
-                {Number(dataMovieAndTVDetail?.vote_average).toFixed(1)}+
-              </p>
-              <span className="line">|</span>
-              <p>
-                <span>View: </span>
-                {Number(dataMovieAndTVDetail?.vote_count)}
-              </p>
-              <span className="line">|</span>
-              <p>
-                <span>Duration: </span>
-                {duration[0]}h {duration[1]}m
-              </p>
-            </div>
-            <div className="divider"></div>
-
-            <div className="overview">
-              <h3>Overview</h3>
-              <p>{dataMovieAndTVDetail?.overview}</p>
-              <div className="divider"></div>
-              <div className="status">
-                <p>
-                  <span>Status: </span>
-                  {dataMovieAndTVDetail?.status}
-                </p>
-                <span className="line">|</span>
-                <p>
-                  <span> Release Date: </span>
-
-                  {moment(dataMovieAndTVDetail?.release_date).format(
-                    "MMMM Do YYYY"
-                  )}
-                </p>
-                <span className="line">|</span>
-                <p>
-                  <span>Revenue: </span>
-                  {Number(dataMovieAndTVDetail?.revenue).toLocaleString()}$
-                </p>
-              </div>
-            </div>
-
-            <div className="divider"></div>
-            <div className="director">
-              <p>
-                <span>Director: </span>
-                {dataMovieAndTVCredits?.crew &&
-                dataMovieAndTVCredits.crew.length > 0
-                  ? dataMovieAndTVCredits.crew[0].name
-                  : "No director information available"}
-              </p>
-              <div className="divider"></div>
-              <p>
-                <span>Writer: </span>
-                {writer}
-              </p>
-            </div>
-            <div className="divider"></div>
-            <h2>Cast:</h2>
-            <div className="cast">
-              {dataMovieAndTVCredits?.cast
-                ?.filter((e) => e.profile_path)
-                .slice(0, 20)
-                .map((actor, index) => {
-                  return (
-                    <div className="actor">
-                      <img src={IMG_URL + actor.profile_path} alt="" />
-                      <p>{actor.name}</p>
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
-
-          <div className="similar">
-            <CarouselList
-              data={dataMovieAndTVSimilar}
-              heading={"Similar " + params.explore}
-              media_type={params.explore}
-            />
-            <CarouselList
-              data={dataMovieAndTVRecommendations}
-              heading={"Recommendation " + params.explore}
-              media_type={params.explore}
-            />
-          </div>
-
-          {playVideo && (
-            <VideoPlay params={params} close={() => setPlayVideo(false)} />
-          )}
         </div>
-      )}
-    </div>
-  );
+
+        <div className="avatar">
+          <img src={IMG_URL + dataMovieAndTVDetail?.poster_path} alt="Poster" />
+          <button onClick={handlePlayVideo}>Play Trailer</button>
+        </div>
+
+        <div className="content">
+          <h1 className="title">
+            {dataMovieAndTVDetail?.title || dataMovieAndTVDetail?.name}
+          </h1>
+          <p>{dataMovieAndTVDetail?.tagline}</p>
+
+          <div className="divider"></div>
+
+          <div className="rating">
+            <p>
+              <span>Rating: </span>
+              {Number(dataMovieAndTVDetail?.vote_average).toFixed(1)}+
+            </p>
+            <span className="line">|</span>
+            <p>
+              <span>View: </span>
+              {Number(dataMovieAndTVDetail?.vote_count)}
+            </p>
+            <span className="line">|</span>
+            <p>
+              <span>Duration: </span>
+              {duration[0]}h {duration[1]}m
+            </p>
+          </div>
+          <div className="divider"></div>
+
+          <div className="overview">
+            <h3>Overview</h3>
+            <p>{dataMovieAndTVDetail?.overview}</p>
+            <div className="divider"></div>
+            <div className="status">
+              <p>
+                <span>Status: </span>
+                {dataMovieAndTVDetail?.status}
+              </p>
+              <span className="line">|</span>
+              <p>
+                <span> Release Date: </span>
+
+                {moment(dataMovieAndTVDetail?.release_date).format(
+                  "MMMM Do YYYY"
+                )}
+              </p>
+              <span className="line">|</span>
+              <p>
+                <span>Revenue: </span>
+                {Number(dataMovieAndTVDetail?.revenue).toLocaleString()}$
+              </p>
+            </div>
+          </div>
+
+          <div className="divider"></div>
+          <div className="director">
+            <p>
+              <span>Director: </span>
+              {dataMovieAndTVCredits?.crew &&
+              dataMovieAndTVCredits.crew.length > 0
+                ? dataMovieAndTVCredits.crew[0].name
+                : "No director information available"}
+            </p>
+            <div className="divider"></div>
+            <p>
+              <span>Writer: </span>
+              {writer}
+            </p>
+          </div>
+          <div className="divider"></div>
+          <h2>Cast:</h2>
+          <div className="cast">
+            {dataMovieAndTVCredits?.cast
+              ?.filter((e) => e.profile_path)
+              .slice(0, 20)
+              .map((actor, index) => {
+                return (
+                  <div className="actor">
+                    <img src={IMG_URL + actor.profile_path} alt="" />
+                    <p>{actor.name}</p>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+
+        <div className="similar">
+          <CarouselList
+            data={dataMovieAndTVSimilar}
+            heading={"Similar " + params.explore}
+            media_type={params.explore}
+          />
+          <CarouselList
+            data={dataMovieAndTVRecommendations}
+            heading={"Recommendation " + params.explore}
+            media_type={params.explore}
+          />
+        </div>
+
+        {playVideo && (
+          <VideoPlay params={params} close={() => setPlayVideo(false)} />
+        )}
+      </div>
+    );
+  }
 };
 
 export default DetailsPage;

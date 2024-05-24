@@ -12,6 +12,7 @@ import { fetchPopularTV, fetchOnTheAirTV } from "../../store/thunks/fetchTV";
 import BannerHome from "../../components/BannerHome/BannerHome";
 import "./Home.scss";
 import CarouselList from "../../components/CarouselList/CarouselList";
+import Loading from "../../components/Loading/Loading";
 
 const Home = () => {
   //Movie
@@ -47,13 +48,15 @@ const Home = () => {
     doFetchPopularTV();
     doFetchOnTheAirTV();
   }, []);
-  return (
-    <div className="home">
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : loadingError ? (
-        <p>Error loading data</p>
-      ) : (
+
+  if (isLoading || isLoadingNowPlaying || isLoadingTopRated) {
+    return <Loading />;
+  }
+  if (loadingError || loadingNowPlayingError || loadingTopRatedError) {
+    return <p>Error loading data</p>;
+  } else {
+    return (
+      <div className="home">
         <>
           <BannerHome />
           <div className="homeCarousel">
@@ -81,9 +84,9 @@ const Home = () => {
             />
           </div>
         </>
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
 export default Home;
