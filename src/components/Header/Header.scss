@@ -54,7 +54,8 @@
         color: greenyellow;
       }
       @include sm {
-        right: 25px;
+        //still don't know why must apply this line when deploy on netlify, otherwise the position of the icon is not correct, but in local we don't need this line
+        right: 35px;
       }
     }
   }
