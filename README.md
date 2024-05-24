@@ -10,7 +10,7 @@ Welcome to **The Movie**, your go-to destination for exploring the world of cine
 
 - **Movie Trailers**: Watch exclusive trailers of upcoming movies right within the app.
 - **TV Shows**: Explore a vast library of TV shows, including series, specials, and documentaries.
-- **Search Functionality**: Search for movies, TV shows, and even actors/directors to find exactly what you're looking for.
+- **Search Functionality**: Search for movies, TV shows to find what you're looking for.
 - **Responsive Design**: Enjoy a consistent viewing experience across devices thanks to our responsive design powered by Sass.
 
 ## Technologies Used

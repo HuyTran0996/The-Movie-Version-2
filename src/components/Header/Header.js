@@ -34,6 +34,15 @@ const Header = () => {
     setToggleMenu(!toggleMenu);
   };
 
+  const handleClickOutside = (e) => {
+    if (
+      !e.target.closest(".navbar") &&
+      !e.target.closest(".navbar-toggler-btn")
+    ) {
+      setToggleMenu(false);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!input.trim()) {
@@ -44,6 +53,18 @@ const Header = () => {
 
     SetInput("");
   };
+
+  useEffect(() => {
+    if (toggleMenu) {
+      document.addEventListener("click", handleClickOutside);
+    } else {
+      document.removeEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [toggleMenu]);
 
   useEffect(() => {
     const setActiveClass = () => {
