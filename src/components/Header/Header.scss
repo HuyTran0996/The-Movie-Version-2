@@ -53,6 +53,9 @@
       &:hover {
         color: greenyellow;
       }
+      @include sm {
+        right: 25px;
+      }
     }
   }
 

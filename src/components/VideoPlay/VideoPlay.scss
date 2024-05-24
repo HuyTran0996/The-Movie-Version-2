@@ -23,6 +23,7 @@
       height: 70vh;
     }
     @include md {
+      top: -10vh;
       width: 80vw;
       height: 35vh;
     }
