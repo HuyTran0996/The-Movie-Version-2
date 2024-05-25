@@ -11,11 +11,8 @@
     justify-content: center;
     align-items: center;
     padding: 10vh 30px 30px 30px;
-    @include lg {
-      padding: 20vh 60px 30px 60px;
-    }
     @include mm {
-      padding: 10vh 20px 30px 20px;
+      padding: 10vh 10px 30px 10px;
     }
     .capitalize {
       font-size: 30px;
@@ -25,21 +22,18 @@
     .grid {
       position: relative;
       display: flex;
+      width: 100%;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      width: 100%;
       .exploreCard {
+        position: relative;
         width: 20%;
-        margin: 5px 0px;
-        margin-right: -20px;
+        padding: 10px 10px;
+
         @include lg {
-          margin: 15px 0px;
-          margin-right: -20px;
           width: 30%;
         }
         @include mm {
-          margin: 15px 0px;
-          margin-right: -20px;
           width: 50%;
         }
       }

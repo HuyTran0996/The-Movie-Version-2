@@ -18,9 +18,11 @@
     img {
       width: 100vw;
       object-fit: cover;
+      @include lg {
+        height: 100%;
+      }
       @include mm {
         height: 100%;
-        object-fit: cover;
       }
     }
     .blurring {
@@ -41,13 +43,16 @@
       color: #fff;
       display: flex;
       flex-direction: column;
-      @include lg {
-        top: 40vh;
-        margin-left: 100px;
-      }
+
       @include mm {
-        margin-left: 10px;
-        margin-right: 10px;
+        top: 40vh;
+        margin: 0 10px;
+      }
+      .title {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
       .overview {
         display: -webkit-box;

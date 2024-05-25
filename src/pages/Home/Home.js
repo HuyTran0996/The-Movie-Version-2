@@ -49,10 +49,22 @@ const Home = () => {
     doFetchOnTheAirTV();
   }, []);
 
-  if (isLoading || isLoadingNowPlaying || isLoadingTopRated) {
+  if (
+    isLoading ||
+    isLoadingNowPlaying ||
+    isLoadingTopRated ||
+    isLoadingPopularTV ||
+    isLoadingOnTheAirTV
+  ) {
     return <Loading />;
   }
-  if (loadingError || loadingNowPlayingError || loadingTopRatedError) {
+  if (
+    loadingError ||
+    loadingNowPlayingError ||
+    loadingTopRatedError ||
+    loadingPopularTVError ||
+    loadingOnTheAirTVError
+  ) {
     return <p>Error loading data</p>;
   } else {
     return (
@@ -60,28 +72,38 @@ const Home = () => {
         <>
           <BannerHome />
           <div className="homeCarousel">
-            <CarouselList data={dataTrendingAll} heading={"Trending"} />
-            <CarouselList
-              data={dataNowPlayingMovie}
-              heading={"Now Playing"}
-              media_type={"movie"}
-            />
-            <CarouselList
-              data={dataTopRatedMovie}
-              heading={"Top Rated Movies"}
-              media_type={"movie"}
-            />
+            <div className="listHomeCarousel">
+              <CarouselList data={dataTrendingAll} heading={"Trending"} />
+            </div>
 
-            <CarouselList
-              data={dataPopularTV}
-              heading={"Popular TV Show"}
-              media_type={"tv"}
-            />
-            <CarouselList
-              data={dataOnTheAir}
-              heading={"On The Air"}
-              media_type={"tv"}
-            />
+            <div className="listHomeCarousel">
+              <CarouselList
+                data={dataNowPlayingMovie}
+                heading={"Now Playing"}
+                media_type={"movie"}
+              />
+            </div>
+            <div className="listHomeCarousel">
+              <CarouselList
+                data={dataTopRatedMovie}
+                heading={"Top Rated Movies"}
+                media_type={"movie"}
+              />
+            </div>
+            <div className="listHomeCarousel">
+              <CarouselList
+                data={dataPopularTV}
+                heading={"Popular TV Show"}
+                media_type={"tv"}
+              />
+            </div>
+            <div className="listHomeCarousel">
+              <CarouselList
+                data={dataOnTheAir}
+                heading={"On The Air"}
+                media_type={"tv"}
+              />
+            </div>
           </div>
         </>
       </div>

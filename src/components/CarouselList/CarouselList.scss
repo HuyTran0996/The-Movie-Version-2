@@ -3,21 +3,25 @@
   position: relative;
   width: 100%;
   color: #fff;
-  margin-bottom: 50px;
 
   .heading {
     font-size: 30px;
+    font-weight: bold;
     margin-bottom: 10px;
   }
 
   .carousel {
     position: relative;
     width: 100%;
-
     display: flex;
-    justify-content: space-between;
-
+    justify-content: space-evenly;
+    .cardInCarousel {
+      position: relative;
+      //padding top and bottom 10px to give space for hover on card
+      padding: 10px 15px;
+    }
     button {
+      z-index: 1;
       &:hover {
         background-color: aqua;
       }

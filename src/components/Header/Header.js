@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 import "./Header.scss";
@@ -11,7 +11,6 @@ import { PiTelevisionFill } from "react-icons/pi";
 import { BiSolidMoviePlay } from "react-icons/bi";
 import { BiSolidCameraMovie } from "react-icons/bi";
 
-import userIcon from "../../assets/user.png";
 import logo from "../../assets/logo.png";
 import { showToast } from "../../components/ToastMessage";
 

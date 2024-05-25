@@ -99,7 +99,7 @@ const DetailsPage = () => {
 
         <div className="avatar">
           <img src={IMG_URL + dataMovieAndTVDetail?.poster_path} alt="Poster" />
-          <button onClick={handlePlayVideo}>Play Trailer</button>
+          <button onClick={handlePlayVideo}>Trailer</button>
         </div>
 
         <div className="content">
@@ -186,16 +186,20 @@ const DetailsPage = () => {
         </div>
 
         <div className="similar">
-          <CarouselList
-            data={dataMovieAndTVSimilar}
-            heading={"Similar " + params.explore}
-            media_type={params.explore}
-          />
-          <CarouselList
-            data={dataMovieAndTVRecommendations}
-            heading={"Recommendation " + params.explore}
-            media_type={params.explore}
-          />
+          <div className="similarCarousel">
+            <CarouselList
+              data={dataMovieAndTVSimilar}
+              heading={"Similar " + params.explore}
+              media_type={params.explore}
+            />
+          </div>
+          <div className="similarCarousel">
+            <CarouselList
+              data={dataMovieAndTVRecommendations}
+              heading={"Recommendation " + params.explore}
+              media_type={params.explore}
+            />
+          </div>
         </div>
 
         {playVideo && (

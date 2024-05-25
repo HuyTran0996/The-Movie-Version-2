@@ -10,18 +10,18 @@ const Card = ({ item, media_type }) => {
     navigate(`/${media_type || item?.media_type}/${item.id}`);
   };
   return (
-    <div className="carouselList" onClick={() => moveTo(item)}>
+    <div className="card" onClick={() => moveTo(item)}>
       <img src={IMG_URL + item.poster_path} alt="poster_path" />
 
-      <div className="carouselListContent">
-        <h2 className="carouselListTitle">{item.title || item.name}</h2>
+      <div className="cardListContent">
+        <h2 className="cardListTitle">{item.title || item.name}</h2>
 
         <div className="releaseAndRating">
-          <p className="carouselListReleaseDate">
+          <p className="cardListReleaseDate">
             {moment(item.release_date).format("MMMM Do YYYY")}
           </p>
 
-          <p className="carouselListRating">
+          <p className="cardListRating">
             Rating : {Number(item.vote_average).toFixed(1)}
           </p>
         </div>

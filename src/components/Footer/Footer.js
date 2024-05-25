@@ -37,7 +37,7 @@ const Footer = () => {
 
           <div className="box">
             <h3>Streamit App</h3>
-            <div className="img flexSB">
+            <div className="img">
               <img src="https://img.icons8.com/color/48/000000/apple-app-store--v3.png" />
               <span>App Store</span>
               <img src="https://img.icons8.com/fluency/48/000000/google-play.png" />
