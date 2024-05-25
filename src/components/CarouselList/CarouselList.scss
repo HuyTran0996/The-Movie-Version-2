@@ -19,6 +19,12 @@
       position: relative;
       //padding top and bottom 10px to give space for hover on card
       padding: 10px 15px;
+      @include lg {
+        padding: 10px 10px;
+      }
+      @include mm {
+        padding: 10px 5px;
+      }
     }
     button {
       z-index: 1;
