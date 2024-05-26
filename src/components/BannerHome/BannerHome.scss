@@ -30,7 +30,7 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to top, #1a202c, transparent);
+      background: linear-gradient(to top, rgb(0, 0, 25), transparent);
       @include mm {
         top: -22%;
       }
@@ -38,15 +38,22 @@
     .content {
       position: absolute;
       top: 60vh;
-      margin-left: 50px;
+      padding-left: 50px;
       max-width: 700px;
       color: #fff;
       display: flex;
       flex-direction: column;
+      @include lg {
+        top: 40vh;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 100px;
+        justify-content: center;
+      }
 
       @include mm {
         top: 40vh;
-        margin: 0 10px;
+        padding: 0 20px;
       }
       .title {
         display: -webkit-box;
