@@ -15,6 +15,8 @@ import {
 } from "../../store/thunks/fetchMovies";
 import Loading from "../../components/Loading/Loading";
 
+import noPoster from "../../assets/no-poster.png";
+
 const IMG_URL_BANNER = "https://image.tmdb.org/t/p/original";
 const IMG_URL = "https://image.tmdb.org/t/p/w400";
 
@@ -63,10 +65,28 @@ const DetailsPage = () => {
   };
 
   const duration = (dataMovieAndTVDetail?.runtime / 60)?.toFixed(1)?.split(".");
-  const writer = dataMovieAndTVCredits?.crew
+
+  const Ifwriter = dataMovieAndTVCredits?.crew
     ?.filter((el) => el?.job === "Writer")
-    ?.map((el) => el?.name)
-    ?.join(", ");
+    ?.map((el) => el?.name);
+
+  const writer =
+    Ifwriter.length > 0
+      ? Ifwriter.join(", ")
+      : "No writer information available";
+
+  const Ifcast = dataMovieAndTVCredits?.cast
+    ?.filter((e) => e.profile_path)
+    .slice(0, 20)
+    .map((actor, index) => {
+      return (
+        <div className="actor">
+          <img src={IMG_URL + actor.profile_path} alt="" />
+          <p>{actor.name}</p>
+        </div>
+      );
+    });
+  const cast = Ifcast.length > 0 ? Ifcast : "No cast information available";
 
   if (
     isLoading ||
@@ -90,7 +110,11 @@ const DetailsPage = () => {
         <div className="banner">
           <div className="imgBanner">
             <img
-              src={IMG_URL_BANNER + dataMovieAndTVDetail?.backdrop_path}
+              src={
+                dataMovieAndTVDetail?.backdrop_path
+                  ? IMG_URL_BANNER + dataMovieAndTVDetail?.backdrop_path
+                  : noPoster
+              }
               alt="BANNER"
             />
             <div className="blurring"></div>
@@ -98,7 +122,14 @@ const DetailsPage = () => {
         </div>
 
         <div className="avatar">
-          <img src={IMG_URL + dataMovieAndTVDetail?.poster_path} alt="Poster" />
+          <img
+            src={
+              dataMovieAndTVDetail?.poster_path
+                ? IMG_URL + dataMovieAndTVDetail?.poster_path
+                : noPoster
+            }
+            alt="Poster"
+          />
           <button onClick={handlePlayVideo}>Trailer</button>
         </div>
 
@@ -170,19 +201,7 @@ const DetailsPage = () => {
           </div>
           <div className="divider"></div>
           <h2>Cast:</h2>
-          <div className="cast">
-            {dataMovieAndTVCredits?.cast
-              ?.filter((e) => e.profile_path)
-              .slice(0, 20)
-              .map((actor, index) => {
-                return (
-                  <div className="actor">
-                    <img src={IMG_URL + actor.profile_path} alt="" />
-                    <p>{actor.name}</p>
-                  </div>
-                );
-              })}
-          </div>
+          <div className="cast">{cast}</div>
         </div>
 
         <div className="similar">

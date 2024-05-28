@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import "./Card.scss";
 
+import noPoster from "../../assets/no-poster.png";
+
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const Card = ({ item, media_type }) => {
   const navigate = useNavigate();
@@ -11,7 +13,10 @@ const Card = ({ item, media_type }) => {
   };
   return (
     <div className="card" onClick={() => moveTo(item)}>
-      <img src={IMG_URL + item.poster_path} alt="poster_path" />
+      <img
+        src={item.poster_path ? IMG_URL + item.poster_path : noPoster}
+        alt="poster_path"
+      />
 
       <div className="cardListContent">
         <h2 className="cardListTitle">{item.title || item.name}</h2>

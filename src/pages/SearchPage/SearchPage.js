@@ -45,28 +45,36 @@ const SearchPage = () => {
     <div className="searchPage">
       <div className="container">
         <h3 className="capitalize">Result of: {query}</h3>
+        {dataSearchMulti?.results.length > 0 ? (
+          <>
+            <div className="grid">
+              {dataSearchMulti?.results?.map((exploreData, index) => {
+                return (
+                  <div className="exploreCard">
+                    <Card
+                      item={exploreData}
+                      media_type={params.explore}
+                      key={exploreData.id + "exploreSEction"}
+                    />
+                  </div>
+                );
+              })}
+            </div>
 
-        <div className="grid">
-          {dataSearchMulti?.results?.map((exploreData, index) => {
-            return (
-              <div className="exploreCard">
-                <Card
-                  item={exploreData}
-                  media_type={params.explore}
-                  key={exploreData.id + "exploreSEction"}
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="pagination">
-          <ResponsivePagination
-            current={page}
-            total={dataSearchMulti?.total_pages || 1}
-            onPageChange={moveTo}
-          />
-        </div>
+            <div className="pagination">
+              <ResponsivePagination
+                current={page}
+                total={dataSearchMulti?.total_pages || 1}
+                onPageChange={moveTo}
+              />
+            </div>
+          </>
+        ) : (
+          <div className="exploreCard">
+            No results was found
+            <div />
+          </div>
+        )}
       </div>
     </div>
   );
