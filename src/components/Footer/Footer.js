@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./Footer.scss";
 
 import { ImFacebook2 } from "react-icons/im";
@@ -17,7 +18,6 @@ const Footer = () => {
               <li>Privacy-Policy</li>
               <li>Blog</li>
               <li>FAQ</li>
-              <li>Watch List</li>
             </ul>
             <p>
               © 2024 STREAMIT. All Rights Reserved. All videos and shows on this
@@ -27,21 +27,55 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="box">
+          <div className="socialMedia">
             <h3>Follow Us</h3>
-            <ImFacebook2 className="fab fa-facebook-f" />
-            <FaSquareXTwitter className="fab fa-twitter" />
-            <FaGithub className="fab fa-github" />
-            <FaInstagramSquare className="fab fa-instagram" />
+            <a
+              href="https://www.facebook.com/themoviedb/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ImFacebook2 className="fab fa-facebook-f" />
+            </a>
+
+            <a
+              href="https://x.com/themoviedb?lang=en&mx=2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaSquareXTwitter className="fab fa-twitter" />
+            </a>
+
+            <a
+              href="https://github.com/adamayoung/TMDb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="fab fa-github" />
+            </a>
           </div>
 
           <div className="box">
             <h3>Streamit App</h3>
             <div className="img">
-              <img src="https://img.icons8.com/color/48/000000/apple-app-store--v3.png" />
-              <span>App Store</span>
-              <img src="https://img.icons8.com/fluency/48/000000/google-play.png" />
-              <span>Google Play Store</span>
+              <a
+                href="https://apps.apple.com/us/app/id1458224244"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="appStore"
+              >
+                <img src="https://img.icons8.com/color/48/000000/apple-app-store--v3.png" />
+                <span>App Store</span>
+              </a>
+
+              <a
+                href="https://play.google.com/store/apps/details?id=com.anch.tmdb_anch_movies_database&hl=vi&pli=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="appStore"
+              >
+                <img src="https://img.icons8.com/fluency/48/000000/google-play.png" />
+                <span>Google Play Store</span>
+              </a>
             </div>
           </div>
         </div>
