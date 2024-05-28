@@ -70,10 +70,9 @@ const DetailsPage = () => {
     ?.filter((el) => el?.job === "Writer")
     ?.map((el) => el?.name);
 
-  const writer =
-    Ifwriter.length > 0
-      ? Ifwriter.join(", ")
-      : "No writer information available";
+  const writer = Ifwriter
+    ? Ifwriter.join(", ")
+    : "No writer information available";
 
   const Ifcast = dataMovieAndTVCredits?.cast
     ?.filter((e) => e.profile_path)
@@ -86,7 +85,7 @@ const DetailsPage = () => {
         </div>
       );
     });
-  const cast = Ifcast.length > 0 ? Ifcast : "No cast information available";
+  const cast = Ifcast ? Ifcast : "No cast information available";
 
   if (
     isLoading ||

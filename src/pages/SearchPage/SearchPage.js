@@ -45,7 +45,7 @@ const SearchPage = () => {
     <div className="searchPage">
       <div className="container">
         <h3 className="capitalize">Result of: {query}</h3>
-        {dataSearchMulti?.results.length > 0 ? (
+        {dataSearchMulti?.results?.length > 0 ? (
           <>
             <div className="grid">
               {dataSearchMulti?.results?.map((exploreData, index) => {
