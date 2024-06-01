@@ -34,7 +34,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ImFacebook2 className="fab fa-facebook-f" />
+              <ImFacebook2 className="fab" />
             </a>
 
             <a
@@ -42,7 +42,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaSquareXTwitter className="fab fa-twitter" />
+              <FaSquareXTwitter className="fab" />
             </a>
 
             <a
@@ -50,7 +50,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub className="fab fa-github" />
+              <FaGithub className="fab" />
             </a>
           </div>
 
