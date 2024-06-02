@@ -18,7 +18,7 @@ Welcome to **The Movie**, your go-to destination for exploring the world of cine
 - **Frontend**: React for building the UI components, React Router DOM for client-side routing, and Redux & Redux Toolkit for state management.
 - **Styling**: Sass for writing maintainable and scalable CSS.
 - **API Calls**: Axios for making HTTP requests to external APIs.
-- **Deployment**: Hosted on Vercel for a smooth and reliable user experience.
+- **Deployment**: Hosted on Netlify for a smooth and reliable user experience.
 
 ## Visit my website at: https://huytran-dev.netlify.app
 
