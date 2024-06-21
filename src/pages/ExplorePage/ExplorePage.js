@@ -27,6 +27,7 @@ const ExplorePage = () => {
 
   useEffect(() => {
     doFetchMovieAndTVDiscover({ type: `${params.explore}`, page });
+    setPage(Number(searchParams.get("page")) || 1);
   }, [params, page]);
 
   const moveTo = (p) => {
