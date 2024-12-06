@@ -1,27 +1,50 @@
-# The Movie - Version 2 🎬📺
+# React + TypeScript + Vite
 
-Welcome to **The Movie**, your go-to destination for exploring the world of cinema and television. Dive into a universe where you can discover movie trailers, TV shows, and search for your favorite titles effortlessly. Built with cutting-edge technologies like React, React Router DOM, Redux, Redux Toolkit, and styled with Sass for responsiveness across various screens, The Movie offers a seamless and engaging experience tailored for modern browsers.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Visit the app at: https://the-movie-2nd.netlify.app
+Currently, two official plugins are available:
 
-## View source code at: https://github.com/HuyTran0996/The-Movie-Version-2
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Features
+## Expanding the ESLint configuration
 
-- **Movie Trailers**: Watch exclusive trailers of upcoming movies right within the app.
-- **TV Shows**: Explore a vast library of TV shows, including series, specials, and documentaries.
-- **Search Functionality**: Search for movies, TV shows to find what you're looking for.
-- **Responsive Design**: Enjoy a consistent viewing experience across devices thanks to our responsive design powered by Sass.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## Technologies Used
+- Configure the top-level `parserOptions` property like this:
 
-- **Frontend**: React for building the UI components, React Router DOM for client-side routing, and Redux & Redux Toolkit for state management.
-- **Styling**: Sass for writing maintainable and scalable CSS.
-- **API Calls**: Axios for making HTTP requests to external APIs.
-- **Deployment**: Hosted on Netlify for a smooth and reliable user experience.
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-## Visit my website at: https://huytran-dev.netlify.app
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-## Visit my Linked at: https://www.linkedin.com/in/huy-tran-ba2a61258
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-## Visit my Github profile at: https://github.com/HuyTran0996
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
